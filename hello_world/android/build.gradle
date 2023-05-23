@@ -1,0 +1,72 @@
+group 'dev.buijs.klutter.cookbook.examples.hello_world'
+version '0.0.1'
+
+apply plugin: 'com.android.library'
+apply plugin: 'dev.buijs.klutter'
+apply plugin: 'kotlin-android'
+
+buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url = uri("https://repsy.io/mvn/buijs-dev/klutter") }
+    }
+
+    dependencies {
+        classpath platform("dev.buijs.klutter:bom:2023.1.1.beta")
+        classpath "dev.buijs.klutter:gradle"
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url = uri("https://repsy.io/mvn/buijs-dev/klutter") }
+    }
+}
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+
+klutter {
+    root = file("../")
+    include("annotations")
+    include("kore")
+    include("kompose")
+    include("embedded")
+}
+
+dependencies {
+    runtimeOnly "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
+    implementation project(":klutter:hello_world")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

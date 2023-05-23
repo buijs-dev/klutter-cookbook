@@ -1,0 +1,23 @@
+name: hello_world_example
+description: Demonstrates how to use the hello_world plugin
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: '>=2.16.1 <3.0.0'
+
+dependencies:
+    flutter:
+        sdk: flutter
+
+    hello_world:
+        path: ../
+    squint_json: ^0.1.2
+    klutter_ui: ^0.0.3
+
+dev_dependencies:
+    flutter_test:
+        sdk: flutter
+
+    klutter: ^0.3.0
+flutter:
+    uses-material-design: true

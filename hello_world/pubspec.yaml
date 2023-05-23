@@ -1,0 +1,23 @@
+name: hello_world
+description: A new klutter plugin project.
+version: 0.0.1
+
+environment:
+  sdk: '>=2.16.1 <3.0.0'
+  flutter: ">=2.5.0"
+
+dependencies:
+    flutter:
+        sdk: flutter
+    squint_json: ^0.1.2
+    klutter_ui: ^0.0.3
+dev_dependencies:
+    klutter: ^0.3.0
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.buijs.klutter.cookbook.examples.hello_world
+        pluginClass: HelloWorldPlugin
+      ios:
+        pluginClass: HelloWorldPlugin
