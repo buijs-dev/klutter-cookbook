@@ -10,4 +10,4 @@ All recipes are based on Klutter version 2023.1.1.beta.
 
 ## Recipes
 - [Hello World](hello_world)
-- [Hello World Stateless UI](hello_world_stateless_ui)
+- [Stateless UI](stateless_ui)
