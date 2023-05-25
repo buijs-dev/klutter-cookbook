@@ -19,18 +19,18 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SafeArea(
-    child: Scaffold(
-        backgroundColor: Colors.indigo,
-        body: Center(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              context.whereAmIButton,
-              context.sayHelloButton,
-            ]),
-        ))),
-  );
+        child: Scaffold(
+            backgroundColor: Colors.indigo,
+            body: Center(
+                child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    context.whereAmIButton,
+                    context.sayHelloButton,
+                  ]),
+            ))),
+      );
 }

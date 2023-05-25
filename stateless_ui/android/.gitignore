@@ -1,0 +1,10 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.cxx
+/src/main/kotlin/dev/buijs/klutter/cookbook/examples/stateless_ui/StatelessUiPlugin.kt
