@@ -13,8 +13,8 @@ Before following a recipe locally, you need to set up [kradle](https://buijs.dev
 In each recipe add the kradle-wrapper.jar in the ./.kradle directory and create ./kradle.env file with the following content:
 
 ```properties
-cache=/Users/buijs/.kradle/cache/
-output.path=/Users/buijs/repos/klutter-cookbook/hello_world/platform/build/klutter
+cache={{system.user.home}}/.kradle/cache/
+output.path={{project.build}}/klutter
 skip.codegen=false
 ```
 
