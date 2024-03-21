@@ -9,23 +9,17 @@ This cookbook contains examples of both the platform (Kotlin) and ui (Flutter) c
 All recipes are based on Klutter version 2023.3.1.beta.
 
 ## Local setup
-Before following a recipe locally, you need to setup kradle.
+Before following a recipe locally, you need to set up [kradle](https://buijs.dev/kradle-1/).
+In each recipe add the kradle-wrapper.jar in the ./.kradle directory and create ./kradle.env file with the following content:
 
-You can download the kradle-wrapper from GitHub. 
-The download link is noted under paragraph [installation](https://buijs.dev/kradle-1/).
-
-```shell
-./gradlew klutterGetKradle
-```
-
-Create a **kradle.env** file with the following content:
 ```properties
-cache={{system.user.home}}/.kradle/cache/
-output.path={{project.build}}/klutter
+cache=/Users/buijs/.kradle/cache/
+output.path=/Users/buijs/repos/klutter-cookbook/hello_world/platform/build/klutter
 skip.codegen=false
 ```
 
-Now you're ready to build the app:
+You can build the project simply by running:
+
 ```shell
 ./kradlew build
 ```
