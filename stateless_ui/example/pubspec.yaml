@@ -12,7 +12,7 @@ dependencies:
     stateless_ui:
         path: ../
 
-    klutter_ui: ^0.0.3
+    klutter_ui: ^1.0.1
     squint_json: ^0.1.2
 
     flutter_svg: ^1.1.6
@@ -20,7 +20,7 @@ dev_dependencies:
     flutter_test:
         sdk: flutter
 
-    klutter: ^0.3.0
+    klutter: ^2.0.0
 flutter:
     uses-material-design: true
     assets:

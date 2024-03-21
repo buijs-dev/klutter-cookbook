@@ -14,6 +14,7 @@ export 'src/person_selected/selected_person_or_null.dart';
 export 'src/person_selected/select_person_by_friends_double.dart';
 export 'src/person_selected/select_person_by_pizza_addiction_level.dart';
 export 'src/person_selected/select_person_by_name.dart';
+export 'src/person_selected/select_next_person.dart';
 export 'src/person_selected/select_person_by_love_for_pizza.dart';
 export 'src/person_selected/update_selected_person_is_human_random.dart';
 export 'src/person_selected/controller.dart';

@@ -20,15 +20,9 @@ klutter {
     include("bill-of-materials")
 }
 
-ksp {
-    arg("klutterScanFolder", project.buildDir.absolutePath)
-    arg("klutterOutputFolder", project.projectDir.parentFile.absolutePath)
-    arg("klutterGenerateAdapters", "true")
-    arg("intelMac", "false") // Set to "true" if you're building on an Intel Mac!
-}
-
 kotlin {
 
+    jvmToolchain(17)
     android()
 
     val xcfName = "Platform"
@@ -55,7 +49,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
 
@@ -104,12 +98,17 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    namespace = "dev.buijs.klutter.cookbook.examples.stateless_ui.person.platform"
     sourceSets["main"].kotlin { srcDirs("src/androidMain/kotlin") }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     defaultConfig {
-        minSdk = 21
-        targetSdk = 31
+        minSdk = 24
+        compileSdk = 33
     }
 }
 

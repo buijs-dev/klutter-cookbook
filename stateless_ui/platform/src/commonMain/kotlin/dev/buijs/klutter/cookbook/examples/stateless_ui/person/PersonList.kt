@@ -15,4 +15,5 @@ class PersonList: Publisher<PersonDatabaseSnapshot>() {
     override suspend fun publish() {
         emit(PersonDatabaseSnapshot(PersonDatabase.persons))
     }
+
 }

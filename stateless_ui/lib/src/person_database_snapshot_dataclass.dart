@@ -30,5 +30,5 @@ class PersonDatabaseSnapshot {
   });
 
   @JsonValue("persons")
-  final Map<int, Person> persons;
+  final List<Person> persons;
 }

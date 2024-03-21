@@ -9,10 +9,10 @@ const _stream = EventChannel(
 
 class PersonList extends Subscriber<PersonDatabaseSnapshot> {
   const PersonList({
-    required Widget Function(PersonDatabaseSnapshot?) child,
+    required Widget Function(PersonDatabaseSnapshot?) builder,
     Key? key,
   }) : super(
-          child: child,
+          builder: builder,
           channel: _stream,
           topic: "person_list",
           key: key,
@@ -21,5 +21,4 @@ class PersonList extends Subscriber<PersonDatabaseSnapshot> {
   @override
   PersonDatabaseSnapshot decode(dynamic json) =>
       (json as String).toPersonDatabaseSnapshot;
-
 }

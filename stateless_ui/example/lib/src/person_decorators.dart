@@ -3,7 +3,7 @@ import 'package:stateless_ui/stateless_ui.dart';
 
 extension PersonDecorator on Person {
   Color get backgroundColor {
-    switch(this.bornOnPlanet) {
+    switch (this.bornOnPlanet) {
       case Planet.EARTH:
         return Colors.white.withOpacity(0.1);
       case Planet.MARS:
@@ -18,15 +18,18 @@ extension PersonDecorator on Person {
   }
 
   Image get image {
-    switch(this.bornOnPlanet) {
+    switch (this.bornOnPlanet) {
       case Planet.EARTH:
-        return Image.asset('assets/symbol_earth.png', color: Colors.pinkAccent.withOpacity(0.7));
+        return Image.asset('assets/symbol_earth.png',
+            color: Colors.pinkAccent.withOpacity(0.7));
       case Planet.MARS:
         return Image.asset('assets/symbol_mars.png', color: Colors.pinkAccent);
       case Planet.JUPITER:
-        return Image.asset('assets/symbol_jupiter.png', color: Colors.pinkAccent);
+        return Image.asset('assets/symbol_jupiter.png',
+            color: Colors.pinkAccent);
       case Planet.EGO:
-        return Image.asset('assets/symbol_uranus.png', color: Colors.pinkAccent);
+        return Image.asset('assets/symbol_uranus.png',
+            color: Colors.pinkAccent);
       case Planet.NONE:
         return Image.asset('assets/symbol_earth.png', color: Colors.pinkAccent);
     }

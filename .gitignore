@@ -1,2 +1,4 @@
 /hello_world/local.properties
 /hello_world/android/klutter/platform.aar
+/stateless_ui/.kradle/kradle-wrapper.jar
+/stateless_ui/kradle.env

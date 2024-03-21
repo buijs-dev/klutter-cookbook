@@ -32,3 +32,4 @@ build/
 #iOS
 /ios/Assets/*
 /ios/*.podspec
+/kradle.env

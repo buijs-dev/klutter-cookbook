@@ -28,6 +28,7 @@ import 'pizza_extensions.dart';
 @squint
 class Person {
   const Person({
+    required this.id,
     required this.name,
     required this.age,
     required this.bornOnPlanet,
@@ -35,6 +36,9 @@ class Person {
     this.friends,
     this.isHuman,
   });
+
+  @JsonValue("id")
+  final int id;
 
   @JsonValue("name")
   final String name;

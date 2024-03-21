@@ -15,9 +15,9 @@ buildscript {
     }
 
     dependencies {
-        classpath platform("dev.buijs.klutter:bom:2023.1.1.beta")
+        classpath platform("dev.buijs.klutter:bom:2023.3.1.beta")
         classpath "dev.buijs.klutter:gradle"
-        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.android.tools.build:gradle:8.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20"
     }
 }
@@ -32,15 +32,15 @@ rootProject.allprojects {
 }
 
 android {
-    compileSdkVersion 31
+    namespace "dev.buijs.klutter.cookbook.examples.hello_world"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -48,7 +48,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
+        compileSdk 33
+        minSdkVersion 24
     }
 }
 
@@ -67,6 +68,6 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }

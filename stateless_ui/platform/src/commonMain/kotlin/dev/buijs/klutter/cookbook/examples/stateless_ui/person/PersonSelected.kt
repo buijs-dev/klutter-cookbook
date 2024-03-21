@@ -11,6 +11,14 @@ class PersonSelected: Publisher<Person>() {
 
     private var state: Person? = null
 
+    @Event(name = "selectNextPerson")
+    suspend fun selectNextPerson() {
+        val currentId = state?.id ?: -1
+        val nextId = currentId+1
+        person = PersonDatabase.getByIdOrNull(nextId) ?: PersonDatabase.getByIdOrNull(0)
+        publish()
+    }
+
     @Event(name = "personId")
     suspend fun selectPersonById(id: Int) {
         person = PersonDatabase.getByIdOrNull(id)
@@ -52,7 +60,7 @@ class PersonSelected: Publisher<Person>() {
 
     @Event
     suspend fun selectPersonByLoveForPizza(pizzaLove: PizzaLove) {
-        person = PersonDatabase.persons.values
+        person = PersonDatabase.persons
             .firstOrNull { it.favoritePizzas[pizzaLove.pizza]!! >= pizzaLove.love }
         publish()
     }
@@ -64,14 +72,14 @@ class PersonSelected: Publisher<Person>() {
 
     @Event
     suspend fun selectPersonByPizzaAddictionLevel(addictionLevel: Double) {
-        person = PersonDatabase.persons.values
+        person = PersonDatabase.persons
             .firstOrNull { it.favoritePizzas.any { fav -> fav.value >= addictionLevel } }
         publish()
     }
 
     @Event
     fun countPersonsByPizza(pizza: Pizza): Int = PersonDatabase
-        .persons.values.count { it.favoritePizzas.containsKey(pizza) }
+        .persons.count { it.favoritePizzas.containsKey(pizza) }
 
     @Event
     fun selectedPersonOrNull(): Person? = state

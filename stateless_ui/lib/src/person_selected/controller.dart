@@ -9,10 +9,10 @@ const _stream = EventChannel(
 
 class PersonSelected extends Subscriber<Person> {
   const PersonSelected({
-    required Widget Function(Person?) child,
+    required Widget Function(Person?) builder,
     Key? key,
   }) : super(
-          child: child,
+          builder: builder,
           channel: _stream,
           topic: "person_selected",
           key: key,
