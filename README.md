@@ -18,11 +18,19 @@ output.path={{project.build}}/klutter
 skip.codegen=false
 ```
 
-You can build the project simply by running:
+In the root **and** root/android folder add local.properties with the following content:
+```properties
+sdk.dir=/path-to-your-android-sdk
+flutter.sdk=/path-to-your-flutter-dist
+```
+
+You can then build the project simply by running:
 
 ```shell
 ./kradlew build
 ```
+
+The example app can be started from root/example/lib/main.dart.
 
 ## Recipes
 - [Hello World](hello_world)

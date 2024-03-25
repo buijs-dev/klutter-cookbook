@@ -7,22 +7,3 @@
 A klutter example project using a Broadcast Controllers to send and retrieve data asynchronous.
 This example uses stateless widgets to update UI.
 For a statefull UI which stores state on the flutter-side, see [Hello World](../hello_world).
-
-**WIP... coming soon.**
-
-## Getting Started
-The platform module must be built before running the app locally.
-
-In the root **and** root/android folder add local.properties with the following content:
-```properties
-sdk.dir=/Users/your-username/Library/Android/sdk
-flutter.sdk=/path-to-your-flutter-dist
-```
-
-In the root folder run:
-
-```shell
-./gradlew build -p "platform"
-```
-
-Then start the app from root/example/lib/main.dart.
