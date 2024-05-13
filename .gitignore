@@ -2,3 +2,8 @@
 /hello_world/android/klutter/platform.aar
 /stateless_ui/.kradle/kradle-wrapper.jar
 /stateless_ui/kradle.env
+/stateless_ui/kradle
+/stateless_ui/ios/Klutter/Platform.xcframework/
+/stateless_ui/ios/Klutter/klutter.md
+/stateless_ui/example/ios/Podfile.lock
+/hello_world/ios/Klutter/Platform.xcframework/

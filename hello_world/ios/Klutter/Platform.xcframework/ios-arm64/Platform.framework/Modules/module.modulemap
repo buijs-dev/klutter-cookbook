@@ -1,8 +1,0 @@
-framework module Platform {
-    umbrella header "Platform.h"
-
-    export *
-    module * { export * }
-
-    use Foundation
-}

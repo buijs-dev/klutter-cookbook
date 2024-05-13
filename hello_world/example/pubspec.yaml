@@ -11,13 +11,13 @@ dependencies:
 
     hello_world:
         path: ../
-    klutter_ui: ^1.0.1
+    klutter_ui: ^1.1.0
     squint_json: ^0.1.2
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
 
-    klutter: ^2.0.0
+    klutter: ^3.0.1
 flutter:
     uses-material-design: true

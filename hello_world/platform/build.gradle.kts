@@ -1,11 +1,12 @@
 import dev.buijs.klutter.gradle.dsl.embedded
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+import dev.buijs.klutter.gradle.tasks.*
 
 plugins {
     id("com.android.library")
     id("dev.buijs.klutter")
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.6.10"
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 version = "1.0"
@@ -23,7 +24,7 @@ klutter {
 kotlin {
 
     jvmToolchain(17)
-    android()
+    androidTarget()
 
     val xcfName = "Platform"
     val xcFramework = XCFramework(xcfName)
@@ -32,7 +33,7 @@ kotlin {
        binaries.framework {
             baseName = xcfName
             xcFramework.add(this)
-            export("dev.buijs.klutter:flutter-engine:2023.1.1.beta")
+            export("dev.buijs.klutter:flutter-engine:2024.1.1.beta")
         }
     }
 
@@ -40,7 +41,7 @@ kotlin {
         binaries.framework {
             baseName = xcfName
             xcFramework.add(this)
-            export("dev.buijs.klutter:flutter-engine-iosSimulatorArm64:2023.1.1.beta")
+            export("dev.buijs.klutter:flutter-engine-iosSimulatorArm64:2024.1.1.beta")
         }
     }
 
@@ -48,8 +49,9 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
             }
         }
 
@@ -59,18 +61,18 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-                embedded("dev.buijs.klutter:flutter-engine-kmp-android:2023.1.1.beta")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+                embedded("dev.buijs.klutter:flutter-engine-kmp-android:2024.1.1.beta")
             }
         }
 
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
@@ -79,14 +81,14 @@ kotlin {
 
         val iosMain by getting {
             dependencies {
-                api("dev.buijs.klutter:flutter-engine:2023.1.1.beta")
+                api("dev.buijs.klutter:flutter-engine:2024.1.1.beta")
             }
         }
 
         val iosSimulatorArm64Main by getting {
            dependsOn(iosMain)
            dependencies {
-             api("dev.buijs.klutter:flutter-engine-iosSimulatorArm64:2023.1.1.beta")
+             api("dev.buijs.klutter:flutter-engine-iosSimulatorArm64:2024.1.1.beta")
            }
         }
 
@@ -107,15 +109,30 @@ android {
     }
 
     defaultConfig {
-        minSdk = 24
         compileSdk = 33
+        minSdk = 24
+    }
+
+    publishing {
+       singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+
+        singleVariant("debug") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
-tasks.build.get()
-    .setFinalizedBy(listOf(
-        tasks.getByName("assemblePlatformReleaseXCFramework"),
-        tasks.getByName("klutterCopyAarFile")))
+val gradleBuildInstanceClassLoader: ClassLoader = this::class.java.classLoader
+tasks.register<GenerateProtoSchemasGradleTask>(GenerateProtoSchemasGradleTask.taskName) {
+    classLoader = gradleBuildInstanceClassLoader
+}
 
-tasks.getByName("assemblePlatformReleaseXCFramework")
-    .setFinalizedBy(listOf(tasks.getByName("klutterCopyFramework")))
+tasks.configureEach {
+    if (name.startsWith("compile")) {
+        mustRunAfter(tasks.named("kspCommonMainKotlinMetadata"))
+    }
+}

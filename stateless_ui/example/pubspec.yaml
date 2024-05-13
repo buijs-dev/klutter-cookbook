@@ -1,30 +1,29 @@
 name: stateless_ui_example
 description: Demonstrates how to use the stateless_ui plugin
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 environment:
-  sdk: '>=2.16.1 <3.0.0'
+  sdk: '>=2.17.6 <4.0.0'
 
 dependencies:
-    flutter:
-        sdk: flutter
+  flutter:
+    sdk: flutter
+  flutter_svg: ^1.1.6
+  stateless_ui:
+    path: ../
 
-    stateless_ui:
-        path: ../
+  squint_json: ^0.1.2
+  klutter_ui: ^1.1.0
 
-    klutter_ui: ^1.0.1
-    squint_json: ^0.1.2
-
-    flutter_svg: ^1.1.6
 dev_dependencies:
-    flutter_test:
-        sdk: flutter
+  flutter_test:
+    sdk: flutter
 
-    klutter: ^2.0.0
+  klutter: ^3.0.1
+
 flutter:
-    uses-material-design: true
-    assets:
-      - assets/symbol_earth.png
-      - assets/symbol_jupiter.png
-      - assets/symbol_mars.png
-      - assets/symbol_uranus.png
+  uses-material-design: true
+  assets:
+    - assets/symbol_earth.png
+    - assets/symbol_jupiter.png
+    - assets/symbol_mars.png
+    - assets/symbol_uranus.png

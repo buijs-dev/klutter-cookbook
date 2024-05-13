@@ -1,5 +1,4 @@
 library stateless_ui;
-
 export 'src/person_database_snapshot_extensions.dart';
 export 'src/person_list/controller.dart';
 export 'src/person_list/emit_persons_from_database.dart';

@@ -3,17 +3,20 @@ description: A new klutter plugin project.
 version: 0.0.1
 
 environment:
-  sdk: '>=2.16.1 <3.0.0'
+  sdk: '>=2.17.6 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
-    flutter:
-        sdk: flutter
+  flutter:
+    sdk: flutter
 
-    squint_json: ^0.1.2
-    klutter_ui: ^1.0.1
+  squint_json: ^0.1.2
+  klutter_ui: ^1.1.0
+  protobuf: ^3.1.0
+
 dev_dependencies:
-    klutter: ^2.0.0
+  klutter: ^3.0.1
+
 flutter:
   plugin:
     platforms:

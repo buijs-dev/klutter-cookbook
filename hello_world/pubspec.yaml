@@ -10,9 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   squint_json: ^0.1.2
-  klutter_ui: ^1.0.1
+  klutter_ui: ^1.1.0
 dev_dependencies:
-  klutter: ^2.0.0
+  klutter: ^3.0.1
 flutter:
   plugin:
     platforms:

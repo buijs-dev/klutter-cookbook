@@ -78,8 +78,7 @@ class PersonSelected: Publisher<Person>() {
     }
 
     @Event
-    fun countPersonsByPizza(pizza: Pizza): Int = PersonDatabase
-        .persons.count { it.favoritePizzas.containsKey(pizza) }
+    fun countPersonsByPizza(pizza: Pizza): Int = PersonDatabase.persons.count { it.favoritePizzas.containsKey(pizza) }
 
     @Event
     fun selectedPersonOrNull(): Person? = state
