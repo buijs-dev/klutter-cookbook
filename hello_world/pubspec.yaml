@@ -12,7 +12,7 @@ dependencies:
   squint_json: ^0.1.2
   klutter_ui: ^1.1.0
 dev_dependencies:
-  klutter: ^3.0.1
+  klutter: ^3.0.2
 flutter:
   plugin:
     platforms:

@@ -6,7 +6,7 @@
 Klutter is a framework which interconnects Flutter and Kotlin Multiplatform.
 It can be used to create Flutter plugins. 
 This cookbook contains examples of both the platform (Kotlin) and ui (Flutter) code.
-All recipes are based on Klutter version 2024.1.2.beta.
+All recipes are based on Klutter version 2024.1.3.beta.
 
 ## Local setup
 Before following a recipe locally, you need to set up [kradle](https://buijs.dev/kradle-1/) 
@@ -48,4 +48,4 @@ Upgrading klutter is not always straightforward, due to its beta status.
 See migration guides for more information.
 
 - [2023.1.1.beta to 2023.3.1.beta](migration/2023.3.1.beta.md)
-- [2023.3.1.beta to 2024.1.2.beta](migration/2024.1.2.beta.md)
+- [2023.3.1.beta to 2024.1.3.beta](migration/2024.1.3.beta.md)
