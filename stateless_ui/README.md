@@ -6,4 +6,4 @@
 # Hello World
 A klutter example project using a Broadcast Controllers to send and retrieve data asynchronous.
 This example uses stateless widgets to update UI.
-For a statefull UI which stores state on the flutter-side, see [Hello World](../hello_world).
+For a stateful UI which stores state on the flutter-side, see [Hello World](../hello_world).

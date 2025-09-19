@@ -4,7 +4,7 @@ buildscript {
         google()
         mavenCentral()
         mavenLocal()
-        maven { url = uri("https://repsy.io/mvn/buijs-dev/klutter") }
+        maven { url = uri("https://repo.repsy.io/mvn/buijs-dev/klutter") }
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
